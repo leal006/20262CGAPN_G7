@@ -13,7 +13,6 @@ Este repositório reúne os Projetos 1 e 2 desenvolvidos pelo Grupo 7 ao longo d
 - Pedro Giorgi
 - João Vitor Henrique
 - Pedro de Marco
-
 ## Projetos
 
 ### Projeto 1 — Simulador de Repasse do PNAE
@@ -47,3 +46,4 @@ Cada projeto possui um README próprio contendo:
 - **Pedro Giorgi:** Reuniu os prints, registrou a entrega no Eclass e fez os disclaimers do projeto 2;  
 - **João Vitor Henrique:** Fez os disclaimers do projeto 1 e escreveu o README do projeto 2;
 - **Pedro de Marco:** Subiu os arquivos do projeto 2, organizou as pastas e escreveu o README do projeto 1; 
+  

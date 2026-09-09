@@ -34,9 +34,22 @@ Entre os principais recursos utilizados na construção da planilha estão:
 
 ## Prints do resultado
 
-Serão inseridos antes da entrega final prints mostrando o dashboard e os principais elementos da análise funcionando.
+### Dashboard — Urbano
 
----
+![Dashboard urbano](print-dashboard-urbano.png)
+
+### Dashboard — Rural
+
+![Dashboard rural](print-dashboard-rural.png)
+
+### Tabela Dinâmica — Urbano
+
+![Tabela dinâmica urbana](print-tabela-dinamica-urbano.png)
+
+### Tabela Dinâmica — Rural
+
+![Tabela dinâmica rural](print-tabela-dinamica-rural.png)
+
 
 ## Uso de Inteligência Artificial
 

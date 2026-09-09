@@ -47,9 +47,14 @@ A planilha utiliza, entre outros recursos:
 
 ## Prints do resultado
 
-Serão inseridos antes da entrega final prints demonstrando o funcionamento da planilha e do simulador HTML.
+### Simulador HTML
 
----
+![Simulador de Repasse do PNAE funcionando](print-simulador.png)
+
+### Planilha Excel
+
+![Planilha do Simulador de Repasse do PNAE](print-excel.png)
+
 
 ## Uso de Inteligência Artificial
 

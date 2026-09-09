@@ -78,16 +78,7 @@ O projeto utiliza variáveis da base original e colunas calculadas criadas duran
 
 ---
 
-## Participação do Grupo
-
 ### O que aprendemos com este projeto
 
 O projeto permitiu aplicar técnicas de tratamento e análise de dados no Excel, utilizando funções, tabelas dinâmicas, gráficos e segmentações para transformar uma base extensa em informações mais fáceis de interpretar.
 
-### Papel de cada integrante
-
-- **Rafael Stempfer Leal:** [preencher depois]
-- **José Antonio Medeiros:** [preencher depois]
-- **Pedro Giorgi:** [preencher depois]
-- **João Vitor Henrique:** [preencher depois]
-- **Pedro de Marco:** [preencher depois]

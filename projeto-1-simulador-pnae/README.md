@@ -98,8 +98,8 @@ O projeto permitiu aplicar funções e recursos do Excel na construção de um s
 
 ### Papel de cada integrante
 
-- **Rafael Stempfer Leal:** [preencher depois]
-- **José Antonio Medeiros:** [preencher depois]
-- **Pedro Giorgi:** [preencher depois]
-- **João Vitor Henrique:** [preencher depois]
-- **Pedro de Marco:** [preencher depois]
+- **Rafael Stempfer Leal:** Criou o repositório, adicionou os colaboradores, escreveu o README do projeto 1 
+- **José Antonio Medeiros:** Subiu os arquivos do projeto 1 
+- **Pedro Giorgi:** Reuniu os prints e registrou a entrega no eclass 
+- **João Vitor Henrique:** Fez os disclaimers
+- **Pedro de Marco:** Organizou as pastas 

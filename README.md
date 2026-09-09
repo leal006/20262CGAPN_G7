@@ -37,3 +37,11 @@ Cada projeto possui um README próprio contendo:
 - fonte dos dados;
 - registro do uso de inteligência artificial;
 - participação do grupo.
+
+### Papel de cada participante 
+
+- **Rafael Stempfer Leal:** Criou o repositório, adicionou os colaboradores, escreveu o README do projeto 1; 
+- **José Antonio Medeiros:** Subiu os arquivos do projeto 1 e escreveu o README do projeto 2;
+- **Pedro Giorgi:** Reuniu os prints, registrou a entrega no eclass e fez os disclaimers do projeto 2;  
+- **João Vitor Henrique:** Fez os disclaimers do projeto 1 e escreveu o README do projeto 2;
+- **Pedro de Marco:** Subiu os arquivos do projeto 2, organizou as pastas e escreveu o README do projeto 1; 

@@ -40,6 +40,8 @@ Cada projeto possui um README próprio contendo:
 
 ### Papel de cada participante 
 
+`Organização do repositório: a publicação e organização dos arquivos no GitHub foram centralizadas em um computador, enquanto a elaboração e revisão dos projetos foram realizadas pelo grupo conforme a divisão de tarefas descrita abaixo.`
+
 - **Rafael Stempfer Leal:** Criou o repositório, adicionou os colaboradores, escreveu o README do projeto 1; 
 - **José Antonio Medeiros:** Subiu os arquivos do projeto 1 e escreveu o README do projeto 2;
 - **Pedro Giorgi:** Reuniu os prints, registrou a entrega no Eclass e fez os disclaimers do projeto 2;  

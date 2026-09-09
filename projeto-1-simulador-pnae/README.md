@@ -90,16 +90,8 @@ Os dados utilizados correspondem aos valores per capita do Programa Nacional de 
 
 ---
 
-## Participação do Grupo
-
 ### O que aprendemos com este projeto
 
 O projeto permitiu aplicar funções e recursos do Excel na construção de um simulador, além de compreender como diferentes parâmetros influenciam o cálculo do repasse do PNAE. Também foi possível desenvolver uma versão interativa do modelo e documentar o projeto para publicação no GitHub.
 
-### Papel de cada integrante
 
-- **Rafael Stempfer Leal:** Criou o repositório, adicionou os colaboradores, escreveu o README do projeto 1 
-- **José Antonio Medeiros:** Subiu os arquivos do projeto 1 
-- **Pedro Giorgi:** Reuniu os prints e registrou a entrega no eclass 
-- **João Vitor Henrique:** Fez os disclaimers
-- **Pedro de Marco:** Organizou as pastas 

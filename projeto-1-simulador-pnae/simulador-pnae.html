@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Simulador offline do repasse do PNAE" />
+    <title>Simulador de Repasse do PNAE</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --background: #eef3f6;
+        --foreground: #142f3f;
+        --teal: #117d73;
+        --teal-light: #e5f5f2;
+        --navy: #0b2b3d;
+        --muted: #6b7d89;
+        --border: #dce5ea;
+        --surface: rgba(255, 255, 255, .96);
+        --shadow: 0 8px 28px rgba(21, 54, 69, .055);
+      }
+
+      * { box-sizing: border-box; }
+      html { background: var(--background); }
+      body {
+        margin: 0;
+        background: var(--background);
+        color: var(--foreground);
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-size: 16px;
+      }
+      button, input { font: inherit; }
+      button, a { -webkit-tap-highlight-color: transparent; }
+      .shell {
+        min-height: 100vh;
+        background: radial-gradient(circle at 88% 4%, rgba(45,151,139,.11), transparent 23rem),
+          linear-gradient(180deg, #f4f7f9 0%, #edf2f5 42%, #e9eff2 100%);
+      }
+      .wrap { width: min(1480px, 100%); margin: 0 auto; padding: 20px 16px 28px; }
+      @media (min-width: 640px) { .wrap { padding-inline: 24px; } }
+      @media (min-width: 1024px) { .wrap { padding-inline: 32px; padding-top: 28px; } }
+      .topbar { display: flex; flex-direction: column; gap: 16px; margin-bottom: 20px; }
+      @media (min-width: 640px) { .topbar { flex-direction: row; align-items: center; justify-content: space-between; } }
+      .brand { display: flex; align-items: center; gap: 12px; }
+      .brand-mark { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 15px; background: var(--navy); color: #72d7ca; box-shadow: 0 8px 20px rgba(11,43,61,.18); font-size: 22px; }
+      h1, h2, h3, p { margin: 0; }
+      h1 { font-size: clamp(20px, 2.1vw, 25px); letter-spacing: -.02em; color: #0b2535; }
+      .subtitle { margin-top: 2px; font-size: 14px; color: #617381; }
+      .badge { display: inline-flex; align-items: center; border: 1px solid #b7ddd7; border-radius: 999px; background: var(--teal-light); color: #12685f; padding: 4px 9px; font-size: 12px; font-weight: 700; }
+      .title-line { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+      .button { display: inline-flex; min-height: 38px; align-items: center; justify-content: center; gap: 8px; border: 1px solid #cbd7de; border-radius: 9px; background: #fff; color: #19384a; padding: 8px 14px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; box-shadow: 0 1px 2px rgba(15,44,59,.04); }
+      .button:hover { background: #f5f8fa; }
+      .button.primary { border-color: var(--teal); background: var(--teal); color: white; }
+      .button.primary:hover { background: #0f6e66; }
+      .button-group { display: flex; width: 100%; flex-direction: column; gap: 8px; }
+      @media (min-width: 640px) { .button-group { width: auto; flex-direction: row; } }
+      .panel { position: relative; overflow: hidden; border-radius: 26px; background: var(--navy); padding: 24px; box-shadow: 0 18px 44px rgba(15,44,59,.14); }
+      @media (max-width: 639px) { .panel { border-radius: 22px; padding: 21px 18px; } }
+      .panel::after { position: absolute; right: -55px; top: -105px; width: 310px; height: 310px; border: 1px solid rgba(93,209,195,.14); border-radius: 50%; box-shadow: 0 0 0 36px rgba(93,209,195,.035), 0 0 0 78px rgba(93,209,195,.025); content: ""; }
+      .panel-accent { position: absolute; inset: 0 auto 0 0; width: 5px; background: linear-gradient(180deg, #67d5c8 0%, #27a396 65%, #e6b44f 100%); }
+      .panel-grid { position: relative; z-index: 1; display: grid; gap: 20px; }
+      @media (min-width: 1200px) { .panel-grid { grid-template-columns: 1.25fr 2.75fr; align-items: end; } }
+      .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #72d7ca; }
+      .eyebrow.dark { color: #16877c; }
+      .panel h2 { margin-top: 4px; font-size: 24px; letter-spacing: -.02em; color: #fff; }
+      .panel-copy { max-width: 440px; margin-top: 8px; color: #bfd0d8; font-size: 14px; line-height: 1.7; }
+      .fields { display: grid; gap: 12px; }
+      @media (min-width: 640px) { .fields { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (min-width: 1200px) { .fields { grid-template-columns: 1.35fr .9fr .95fr .55fr; } }
+      .field-label { display: flex; min-width: 0; flex-direction: column; gap: 7px; color: #c6d6dd; font-size: 12px; font-weight: 600; }
+      .field-wrap { display: flex; height: 44px; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.13); border-radius: 12px; background: rgba(255,255,255,.075); padding: 0 10px; color: #68cfc2; }
+      .field-wrap:focus-within { border-color: rgba(105,219,205,.65); background: rgba(255,255,255,.1); box-shadow: 0 0 0 3px rgba(76,196,182,.12); }
+      .field-wrap input { min-width: 0; width: 100%; height: 100%; border: 0; outline: 0; background: transparent; color: #fff; }
+      .metrics { display: grid; gap: 12px; margin-top: 16px; }
+      @media (min-width: 640px) { .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (min-width: 1200px) { .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+      .metric { position: relative; min-height: 138px; overflow: hidden; border: 1px solid var(--border); border-radius: 20px; background: rgba(255,255,255,.92); padding: 20px; box-shadow: 0 7px 24px rgba(21,54,69,.055); }
+      .metric::before { position: absolute; inset: 0 auto 0 0; width: 4px; content: ""; }
+      .metric:nth-child(1)::before { background: #1d9b8f; } .metric:nth-child(2)::before { background: #377d9f; } .metric:nth-child(3)::before { background: #d7a53a; } .metric:nth-child(4)::before { background: #5d985d; }
+      .metric-label { font-size: 12px; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; color: #6d7f8a; }
+      .metric-value { margin-top: 8px; font-size: clamp(23px, 2.1vw, 30px); font-weight: 700; letter-spacing: -.04em; line-height: 1.08; color: #143447; }
+      .metric-detail { margin-top: 8px; font-size: 13px; color: #758691; }
+      .grid { display: grid; gap: 16px; margin-top: 16px; }
+      @media (min-width: 1200px) { .grid-main { grid-template-columns: minmax(0, 1.5fr) minmax(360px, .72fr); } .grid-half { grid-template-columns: 1.15fr .85fr; } }
+      .card { overflow: hidden; border: 1px solid var(--border); border-radius: 22px; background: var(--surface); box-shadow: var(--shadow); }
+      .card-head { border-bottom: 1px solid #e3eaf0; padding: 20px 20px 16px; }
+      .card-head.no-border { border-bottom: 0; padding-bottom: 8px; }
+      @media (min-width: 640px) { .card-head { padding-inline: 24px; } }
+      .card-title { color: #17394b; font-size: 17px; font-weight: 700; letter-spacing: -.015em; }
+      .card-copy { margin-top: 4px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+      .card-body { padding: 20px; }
+      .card-body.flush { padding: 0; }
+      @media (min-width: 640px) { .card-body { padding-inline: 24px; } }
+      .scroll { overflow-x: auto; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th { height: 44px; background: #f7fafb; color: #617581; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-align: left; text-transform: uppercase; white-space: nowrap; }
+      th, td { padding: 10px 12px; border-bottom: 1px solid #edf1f4; }
+      th:first-child, td:first-child { padding-left: 20px; } th:last-child, td:last-child { padding-right: 20px; }
+      td { color: #234657; white-space: nowrap; } td.num, th.num { text-align: right; } tbody tr:hover { background: #f9fbfc; }
+      tfoot td { border: 0; background: #edf4f5; color: #17394a; font-weight: 700; }
+      .input-number { width: 108px; height: 36px; border: 1px solid #bcd8d4; border-radius: 8px; background: #f4fbf9; color: #0e685f; padding: 0 9px; text-align: right; font-weight: 700; }
+      .input-number:focus { outline: 0; border-color: #159589; box-shadow: 0 0 0 3px rgba(21,149,137,.15); }
+      .simulation { position: relative; overflow: hidden; border-radius: 22px; background: radial-gradient(circle at 100% 0%, rgba(69,183,170,.24), transparent 17rem), linear-gradient(155deg, #10374a 0%, #0b2a3b 54%, #071f2d 100%); color: #fff; box-shadow: 0 14px 34px rgba(11,42,59,.17); }
+      .simulation::after { position: absolute; right: -54px; bottom: -76px; width: 240px; height: 240px; border: 1px solid rgba(97,207,194,.12); border-radius: 50%; box-shadow: 0 0 0 35px rgba(97,207,194,.025); content: ""; }
+      .simulation .card-head { position: relative; z-index: 1; border: 0; } .simulation .card-title { color: #fff; }
+      .sim-box { position: relative; z-index: 1; border: 1px solid rgba(255,255,255,.1); border-radius: 16px; background: rgba(255,255,255,.07); padding: 16px; }
+      .sim-top { display: flex; align-items: end; justify-content: space-between; gap: 12px; } .sim-label { color: #b9cdd6; font-size: 14px; } .sim-help { margin-top: 3px; color: #8fabb7; font-size: 12px; } .sim-number { color: #fff; font-size: 30px; font-weight: 700; letter-spacing: -.04em; }
+      input[type=range] { width: 100%; accent-color: #58cabc; }
+      .range-labels { display: flex; justify-content: space-between; margin-top: 7px; color: #8faab6; font-size: 12px; }
+      .sim-results { position: relative; z-index: 1; display: grid; gap: 12px; margin-top: 16px; }
+      @media (min-width: 640px) { .sim-results { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+      .result { min-height: 110px; border: 1px solid rgba(255,255,255,.11); border-radius: 16px; background: rgba(255,255,255,.055); padding: 15px; } .result.primary { border-color: rgba(93,210,196,.24); background: rgba(31,157,144,.13); }
+      .result p { color: #a9bfca; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; } .result strong { display: block; margin-top: 7px; color: #fff; font-size: 21px; } .result span { display: block; margin-top: 5px; color: #93aeba; font-size: 12px; }
+      .sim-note { position: relative; z-index: 1; display: flex; gap: 10px; margin-top: 16px; border-radius: 14px; background: #092333; padding: 14px; color: #bfd0d8; font-size: 14px; line-height: 1.55; }
+      .note-icon { color: #69d3c5; font-weight: 800; }
+      .mini-note { border-top: 1px solid #e3eaf0; padding: 12px 20px; color: #71838d; font-size: 12px; line-height: 1.55; }
+      .bands-note { margin-top: 16px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+      .scenario-head { display: flex; flex-direction: column; gap: 12px; }
+      @media (min-width: 640px) { .scenario-head { flex-direction: row; align-items: start; justify-content: space-between; } }
+      .scenario-status { margin-top: 12px; color: var(--muted); font-size: 12px; font-weight: 600; }
+      .scenario-table { margin-top: 8px; overflow-x: auto; border: 1px solid #e0e8ec; border-radius: 12px; }
+      .scenario-table tr.current { background: #f1faf8; }
+      .scenario-table tr.current td:first-child { color: #16877c; }
+      .chips { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; margin: 8px 0 0; }
+      .chip { min-width: 0; border: 1px solid #e0e8ec; border-radius: 13px; background: #f8fafb; padding: 10px; } .chip b { display: block; color: #16877c; font-size: 12px; } .chip strong { display: block; overflow: hidden; margin-top: 3px; color: #234657; font-size: 13px; text-overflow: ellipsis; } .chip small { display: block; margin-top: 3px; color: #758792; font-size: 11px; }
+      .bar-list { display: grid; gap: 10px; }
+      .bar-row { display: grid; grid-template-columns: minmax(120px, 1fr) minmax(120px, 2fr) auto; align-items: center; gap: 10px; color: #536b79; font-size: 13px; } .bar-track { height: 10px; overflow: hidden; border-radius: 999px; background: #edf4f5; } .bar-fill { height: 100%; border-radius: inherit; background: #238e84; }
+      .mapping td { white-space: normal; vertical-align: top; } .mapping code, .formula { color: #16877c; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: 12px; }
+      footer { display: flex; gap: 10px; margin-top: 16px; border: 1px solid #d7e1e6; border-radius: 16px; background: rgba(255,255,255,.7); padding: 16px 20px; color: #667984; font-size: 14px; line-height: 1.65; }
+      footer strong { color: #284858; }
+      @media (max-width: 639px) { .metric { min-height: 126px; } .bar-row { grid-template-columns: 105px 1fr auto; font-size: 12px; } }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <div class="wrap">
+        <header class="topbar">
+          <div class="brand">
+            <div class="brand-mark" aria-hidden="true">⌁</div>
+            <div>
+              <div class="title-line"><h1>Simulador de Repasse do PNAE</h1><span class="badge">Modelo didático</span></div>
+              <p class="subtitle">Arquivo único offline com os dados da planilha</p>
+            </div>
+          </div>
+          <div class="button-group"><button class="button" id="reset" type="button">Restaurar exemplo</button></div>
+        </header>
+
+        <section class="panel" aria-labelledby="school-heading">
+          <div class="panel-accent" aria-hidden="true"></div>
+          <div class="panel-grid">
+            <div><p class="eyebrow">Cenário base</p><h2 id="school-heading">Dados da escola</h2><p class="panel-copy">Edite os campos e acompanhe os resultados em tempo real.</p></div>
+            <div class="fields">
+              <label class="field-label">Nome da escola<span class="field-wrap">⌂<input id="school-name" value="EMEB Vila Quitaúna" /></span></label>
+              <label class="field-label">Bairro<span class="field-wrap">⌖<input id="school-neighborhood" value="Quitaúna" /></span></label>
+              <label class="field-label">Município<span class="field-wrap">◎<input id="school-municipality" value="Osasco/SP" /></span></label>
+              <label class="field-label">Dias letivos<span class="field-wrap">▦<input id="days" type="number" min="0" max="366" value="200" /></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Indicadores principais">
+          <div class="metric"><p class="metric-label">Total de matrículas</p><p class="metric-value" id="metric-total">190</p><p class="metric-detail">Ano letivo projetado</p></div>
+          <div class="metric"><p class="metric-label">Porte da escola</p><p class="metric-value" id="metric-size">Pequena</p><p class="metric-detail" id="metric-size-detail">Até 200 matrículas</p></div>
+          <div class="metric"><p class="metric-label">Repasse anual estimado</p><p class="metric-value" id="metric-transfer">R$ 37.660,00</p><p class="metric-detail" id="metric-days-detail">200 dias letivos considerados</p></div>
+          <div class="metric"><p class="metric-label">Complementação municipal</p><p class="metric-value" id="metric-eligible">Elegível</p><p class="metric-detail">Regra didática do exercício</p></div>
+        </section>
+
+        <section class="grid grid-main">
+          <article class="card">
+            <div class="card-head"><h2 class="card-title">Matrículas por modalidade</h2><p class="card-copy">Informe o número de estudantes; os valores per capita vêm da planilha.</p></div>
+            <div class="card-body flush scroll"><table id="enrollment-table"><thead><tr><th>Modalidade</th><th class="num">Matrículas</th><th class="num">Per capita / dia</th><th class="num">Repasse anual</th></tr></thead><tbody></tbody><tfoot><tr><td>Total</td><td class="num" id="table-total">190</td><td></td><td class="num" id="table-transfer">R$ 37.660,00</td></tr></tfoot></table></div>
+          </article>
+
+          <article class="simulation">
+            <div class="card-head"><p class="eyebrow">Modelo para simulação</p><h2 class="card-title">Ajuste de matrículas</h2></div>
+            <div class="card-body">
+              <div class="sim-box"><div class="sim-top"><div><p class="sim-label">Fator de ajuste</p><p class="sim-help">Variação aplicada a todas as modalidades</p></div><span class="sim-number" id="adjustment-label">0%</span></div><input id="adjustment-range" type="range" min="-20" max="20" step="5" value="0" aria-label="Fator de ajuste das matrículas" /><div class="range-labels"><span>−20%</span><span>0%</span><span>+20%</span></div></div>
+              <label class="field-label" style="position:relative;z-index:1;margin-top:12px;color:#b9cdd6">Valor editável do fator (%)<span class="field-wrap" style="height:40px"><input id="adjustment-number" type="number" min="-20" max="20" step="5" value="0" aria-label="Valor do fator de ajuste" /></span></label>
+              <div class="sim-results"><div class="result"><p>Matrículas ajustadas</p><strong id="adjusted-total">190</strong><span id="adjusted-base">Base: 190</span></div><div class="result primary"><p>Repasse ajustado</p><strong id="adjusted-transfer">R$ 37.660,00</strong><span id="adjusted-delta">Sem variação</span></div></div>
+              <div class="sim-note"><span class="note-icon">i</span><p>O ajuste altera a simulação, mas não modifica os valores do cenário base acima.</p></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="grid grid-half" aria-label="Parâmetros de referência">
+          <article class="card"><div class="card-head"><h2 class="card-title">Parâmetros do PNAE</h2><p class="card-copy">Tabela de referência extraída da aba Parametros_PNAE.</p></div><div class="card-body flush scroll"><table><thead><tr><th>Modalidade</th><th class="num">Valor per capita / dia</th><th class="num">Célula</th></tr></thead><tbody id="reference-body"></tbody></table></div><p class="mini-note">Dias letivos do exemplo: <strong>200</strong> (Parametros_PNAE!A13).</p></article>
+          <article class="card"><div class="card-head no-border"><h2 class="card-title">Faixas de porte</h2><p class="card-copy">Classificação usada no exercício, por busca aproximada.</p></div><div class="card-body"><div class="scroll"><table><thead><tr><th>Mínimo de matrículas</th><th class="num">Porte</th></tr></thead><tbody id="bands-body"></tbody></table></div><p class="bands-note">A regra de elegibilidade é <strong>Pequena E (Creche OU Pré-escola)</strong>.</p></div></article>
+        </section>
+
+        <section class="grid grid-half">
+          <article class="card"><div class="card-head"><h2 class="card-title">Sensibilidade do repasse</h2><p class="card-copy">Efeito da variação uniforme nas matrículas, de −20% a +20%.</p></div><div class="card-body"><div class="chips" id="chips"></div><div class="scenario-head" style="margin-top:22px;padding-top:18px;border-top:1px solid #e3eaf0"><div><p class="eyebrow dark">Tabela de Dados do Excel</p><h3 class="card-title" style="margin-top:4px;font-size:16px">Cenários reconstruídos passo a passo</h3><p class="card-copy">Cada clique acrescenta o próximo fator da tabela original.</p></div><button class="button primary" id="advance" type="button">Avançar cenário</button></div><p class="scenario-status" id="scenario-status" aria-live="polite">1 de 9 cenários exibidos</p><div class="scenario-table scroll"><table><thead><tr><th>Fator</th><th class="num">Multiplicador</th><th class="num">Matrículas</th><th class="num">Repasse anual</th></tr></thead><tbody id="scenario-body"></tbody></table></div></div></article>
+          <article class="card"><div class="card-head"><h2 class="card-title">Repasse por modalidade</h2><p class="card-copy">Composição do valor anual no cenário base.</p></div><div class="card-body"><div class="bar-list" id="composition"></div></div></article>
+        </section>
+
+        <section class="grid" aria-labelledby="source-heading"><article class="card"><div class="card-head"><h2 id="source-heading" class="card-title">Origem dos dados e fórmulas</h2><p class="card-copy">Células do Excel que inspiram cada parte do artefato.</p></div><div class="card-body flush scroll"><table class="mapping"><thead><tr><th>Parte do simulador</th><th>Células de referência</th><th>Lógica reproduzida</th></tr></thead><tbody><tr><td>Parâmetros per capita</td><td><code>Parametros_PNAE!A4:B11</code></td><td>Busca do valor por modalidade (PROCV).</td></tr><tr><td>Dias e faixas de porte</td><td><code>Parametros_PNAE!A13; A16:B19</code></td><td>Parâmetro de dias e busca aproximada do porte.</td></tr><tr><td>Escola e matrículas</td><td><code>Simulador_Escola!A4:B6; A9:B16</code></td><td>Dados editáveis do cenário base.</td></tr><tr><td>Totais e repasse base</td><td><code>Simulador_Escola!B17; B19:B21</code></td><td><span class="formula">=SOMA(B10:B16)</span>, porte por faixa e <span class="formula">=SOMARPRODUTO(C10:C16;B10:B16)*B20</span>.</td></tr><tr><td>Elegibilidade</td><td><code>Simulador_Escola!C23</code></td><td><span class="formula">=SE(E(B19="Pequena";OU(B10&gt;0;B11&gt;0));"elegível";"não elegível")</span>.</td></tr><tr><td>Ajuste e cenários</td><td><code>Simulador_Escola!C26; B28:D35; A39:C48</code></td><td>Fator de ajuste e tabela de dados de −20% a +20%.</td></tr></tbody></table></div></article></section>
+
+        <footer><span class="note-icon">i</span><p><strong>Fonte indicada na planilha:</strong> Resolução CD/FNDE nº 1, de 18 de fevereiro de 2026. Os valores per capita e os 200 dias letivos são parâmetros do PNAE; as faixas de porte e a regra de elegibilidade são didáticas e não representam critérios oficiais de complementação municipal.</p></footer>
+      </div>
+    </main>
+    <script>
+      (() => {
+        const modalities = [
+          { id: "creche", name: "Creche", perCapita: 1.57, sourceCell: "Parametros_PNAE!B5" },
+          { id: "pre-escola", name: "Pré-escola", perCapita: 0.82, sourceCell: "Parametros_PNAE!B6" },
+          { id: "fundamental", name: "Fundamental", perCapita: 0.57, sourceCell: "Parametros_PNAE!B7" },
+          { id: "medio", name: "Médio", perCapita: 0.57, sourceCell: "Parametros_PNAE!B8" },
+          { id: "eja", name: "EJA", perCapita: 0.57, sourceCell: "Parametros_PNAE!B9" },
+          { id: "indigena-quilombola", name: "Indígena/Quilombola", perCapita: 0.98, sourceCell: "Parametros_PNAE!B10" },
+          { id: "aee", name: "AEE (contraturno)", perCapita: 0.78, sourceCell: "Parametros_PNAE!B11" },
+        ];
+        const sizeBands = [{ minimum: 0, label: "Pequena" }, { minimum: 201, label: "Média" }, { minimum: 401, label: "Grande" }];
+        const variations = [-20, -15, -10, -5, 0, 5, 10, 15, 20];
+        const initial = { creche: 60, "pre-escola": 80, fundamental: 50, medio: 0, eja: 0, "indigena-quilombola": 0, aee: 0 };
+        const state = { enrollments: { ...initial }, days: 200, adjustment: 0, step: 1 };
+        const currency = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL", minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const number = new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 1 });
+        const money = (value) => currency.format(value);
+        const num = (value) => number.format(value);
+        const lookupPerCapita = (id) => modalities.find((modality) => modality.id === id)?.perCapita ?? 0;
+        const schoolSize = (total) => [...sizeBands].reverse().find((band) => total >= band.minimum)?.label ?? "Pequena";
+        const calculateRows = () => modalities.map((modality) => { const enrollment = state.enrollments[modality.id] || 0; return { ...modality, enrollment, annualTransfer: enrollment * lookupPerCapita(modality.id) * state.days }; });
+        const calculateScenario = (rows, variation) => { const factor = 1 + variation / 100; const scenarioRows = rows.map((row) => { const adjustedEnrollment = row.enrollment * factor; return { ...row, adjustedEnrollment, adjustedTransfer: adjustedEnrollment * row.perCapita * state.days }; }); return { variation, factor, enrollment: scenarioRows.reduce((sum, row) => sum + row.adjustedEnrollment, 0), transfer: scenarioRows.reduce((sum, row) => sum + row.adjustedTransfer, 0), rows: scenarioRows }; };
+        const scenarioLabel = (variation) => `${variation > 0 ? "+" : ""}${variation}%`;
+
+        const setText = (id, value) => { document.getElementById(id).textContent = value; };
+        const renderStaticTables = () => {
+          document.getElementById("reference-body").innerHTML = modalities.map((modality) => `<tr><td>${modality.name}</td><td class="num">${money(modality.perCapita)}</td><td class="num"><code>${modality.sourceCell}</code></td></tr>`).join("");
+          document.getElementById("bands-body").innerHTML = sizeBands.map((band) => `<tr><td>${num(band.minimum)}</td><td class="num"><strong>${band.label}</strong></td></tr>`).join("");
+          document.querySelector("#enrollment-table tbody").innerHTML = modalities.map((modality) => `<tr><td>${modality.name}</td><td class="num"><input class="input-number enrollment-input" data-id="${modality.id}" type="number" min="0" max="100000" step="1" value="${state.enrollments[modality.id]}" aria-label="Matrículas em ${modality.name}" /></td><td class="num">${money(modality.perCapita)}</td><td class="num" data-transfer="${modality.id}">${money(0)}</td></tr>`).join("");
+          document.querySelectorAll(".enrollment-input").forEach((input) => input.addEventListener("input", () => { const value = Number(input.value); state.enrollments[input.dataset.id] = Number.isFinite(value) ? Math.min(100000, Math.max(0, Math.round(value))) : 0; render(); }));
+        };
+        const render = () => {
+          const rows = calculateRows(); const total = rows.reduce((sum, row) => sum + row.enrollment, 0); const baseTransfer = rows.reduce((sum, row) => sum + row.annualTransfer, 0); const size = schoolSize(total); const eligible = size === "Pequena" && ((state.enrollments.creche || 0) > 0 || (state.enrollments["pre-escola"] || 0) > 0); const scenarios = variations.map((variation) => calculateScenario(rows, variation)); const current = scenarios.find((scenario) => scenario.variation === state.adjustment) || calculateScenario(rows, state.adjustment); const delta = current.transfer - baseTransfer;
+          setText("metric-total", num(total)); setText("metric-size", size); setText("metric-size-detail", size === "Pequena" ? "Até 200 matrículas" : size === "Média" ? "De 201 a 400 matrículas" : "A partir de 401 matrículas"); setText("metric-transfer", money(baseTransfer)); setText("metric-days-detail", `${state.days} dias letivos considerados`); setText("metric-eligible", eligible ? "Elegível" : "Não elegível"); setText("table-total", num(total)); setText("table-transfer", money(baseTransfer));
+          rows.forEach((row) => { const cell = document.querySelector(`[data-transfer="${row.id}"]`); if (cell) cell.textContent = money(row.annualTransfer); });
+          setText("adjustment-label", `${state.adjustment > 0 ? "+" : ""}${state.adjustment}%`); document.getElementById("adjustment-range").value = state.adjustment; document.getElementById("adjustment-number").value = state.adjustment; setText("adjusted-total", num(current.enrollment)); setText("adjusted-base", `Base: ${num(total)}`); setText("adjusted-transfer", money(current.transfer)); const deltaEl = document.getElementById("adjusted-delta"); deltaEl.textContent = delta === 0 ? "Sem variação" : `${delta > 0 ? "+" : "−"}${money(Math.abs(delta))}`; deltaEl.style.color = delta >= 0 ? "#7ee1d3" : "#ffc9ae";
+          const chipVariations = [-20, 0, 20]; document.getElementById("chips").innerHTML = chipVariations.map((variation) => { const scenario = scenarios.find((item) => item.variation === variation); return `<div class="chip"><b>${scenarioLabel(variation)}</b><strong>${money(scenario.transfer)}</strong><small>${num(scenario.enrollment)} matrículas</small></div>`; }).join("");
+          const visible = scenarios.slice(0, state.step); document.getElementById("scenario-status").textContent = `${Math.min(state.step, variations.length)} de ${variations.length} cenários exibidos`; document.getElementById("scenario-body").innerHTML = visible.map((scenario, index) => `<tr class="${index === visible.length - 1 ? "current" : ""}"><td>${scenarioLabel(scenario.variation)}</td><td class="num">${scenario.factor.toFixed(2).replace(".", ",")}</td><td class="num">${num(scenario.enrollment)}</td><td class="num"><strong>${money(scenario.transfer)}</strong></td></tr>`).join(""); document.getElementById("advance").textContent = state.step >= variations.length ? "Reiniciar cenários" : "Avançar cenário";
+          const maxTransfer = Math.max(...rows.map((row) => row.annualTransfer), 1); document.getElementById("composition").innerHTML = rows.map((row) => `<div class="bar-row"><span>${row.name}</span><span class="bar-track"><span class="bar-fill" style="display:block;width:${(row.annualTransfer / maxTransfer) * 100}%"></span></span><strong>${money(row.annualTransfer)}</strong></div>`).join("");
+        };
+        const clampAdjustment = (value) => { const rounded = Math.round(value / 5) * 5; return Math.min(20, Math.max(-20, Number.isFinite(rounded) ? rounded : 0)); };
+        document.getElementById("adjustment-range").addEventListener("input", (event) => { state.adjustment = clampAdjustment(Number(event.target.value)); render(); });
+        document.getElementById("adjustment-number").addEventListener("input", (event) => { state.adjustment = clampAdjustment(Number(event.target.value)); render(); });
+        document.getElementById("days").addEventListener("input", (event) => { const value = Number(event.target.value); state.days = Number.isFinite(value) ? Math.min(366, Math.max(0, Math.round(value))) : 0; render(); });
+        document.getElementById("advance").addEventListener("click", () => { state.step = state.step >= variations.length ? 1 : state.step + 1; render(); });
+        document.getElementById("reset").addEventListener("click", () => { Object.assign(state, { enrollments: { ...initial }, days: 200, adjustment: 0, step: 1 }); document.getElementById("school-name").value = "EMEB Vila Quitaúna"; document.getElementById("school-neighborhood").value = "Quitaúna"; document.getElementById("school-municipality").value = "Osasco/SP"; document.getElementById("days").value = 200; renderStaticTables(); render(); });
+        renderStaticTables(); render();
+      })();
+    </script>
+  </body>
+</html>

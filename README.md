@@ -20,14 +20,14 @@ Este repositório reúne os Projetos 1 e 2 desenvolvidos pelo Grupo 7 ao longo d
 Simulador em Excel e artefato HTML interativo para estimar o repasse anual do Programa Nacional de Alimentação Escolar (PNAE) a partir das matrículas por modalidade de ensino e dos valores per capita utilizados no exercício.
 
 - Versão original: [`projeto-1-simulador-pnae`](./projeto-1-simulador-pnae/)
-- Monitorada 24/09 (VBA): [`projeto-1-atualizado-com-automacao-vba`](./projeto-1-atualizado-com-automacao-vba/)
+- Versão (VBA): [`projeto-1-atualizado-com-automacao-vba`](./projeto-1-atualizado-com-automacao-vba/)
 
 ### Projeto 2 — Painel do Censo Escolar
 
 Planilha de análise dos Microdados do Censo Escolar da Educação Básica 2024, com tratamento de variáveis, tabelas dinâmicas, gráfico dinâmico, segmentação e dashboard.
 
 - Versão original: [`projeto-2-painel-censo`](./projeto-2-painel-censo/)
-- Monitorada 28/09 (Power Query): [`projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
+- Versão (Power Query): [`projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
 
 ## Documentação
 

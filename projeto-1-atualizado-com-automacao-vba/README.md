@@ -20,7 +20,7 @@ Escola e matrículas são fictícias para fins didáticos. Os valores per capita
 ## Disclaimers
 - **Inteligência Artificial:** apoio de IA na preparação/revisão do código e da documentação. O grupo deve registrar o uso real feito e revisar o código antes da entrega.
 - **Dados:** a escola e as matrículas do simulador são fictícias; os parâmetros per capita são os apresentados no próprio arquivo de atividade.
-- **Participação:** preencher antes da entrega no eClass: `[nome(s) de quem implementou/importou o módulo]`; teste realizado por `[nomes]` em `[data]`, com `[quantidade]` cenários válidos e uma tentativa com Usuário em branco. Não afirmar teste concluído até executá-lo no Excel Desktop.
+- **Participação:** preencher antes de publicar: `[nome(s) de quem implementou/importou o módulo]`; teste realizado por `[nomes]` em `[data]`, com `[quantidade]` cenários válidos e uma tentativa com Usuário em branco. Não afirmar teste concluído até executá-lo no Excel Desktop.
 
 ## Checklist do roteiro
 - [x] Campo Usuário criado na tela sem deslocar as células C25/C26.
@@ -28,4 +28,5 @@ Escola e matrículas são fictícias para fins didáticos. Os valores per capita
 - [x] Código VBA final incluído em arquivo `.bas` com leitura, validação, gravação e limpeza.
 - [ ] Importar/substituir módulo no Excel Desktop e salvar o `.xlsm` final.
 - [ ] Testar macro pelo botão com 2–3 cenários, incluindo Usuário vazio.
-- [ ] Completar participação e relatar os testes reais antes da entrega no eClass.
+- [ ] Preencher os nomes reais de participação e os testes efetivamente realizados.
+- [x] Publicar a pasta do Projeto 1 no GitHub.

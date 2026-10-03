@@ -12,7 +12,7 @@ Tratar a base nacional do Censo Escolar 2024 no Power Query, filtrar primeiro pe
 - A atualização em segundo plano foi desligada na conexão principal e a tabela dinâmica existente está marcada para atualizar ao abrir.
 
 ## Como terminar a configuração no Excel Desktop
-1. Obtenha `Censo_2024_Excel.xlsx` no pacote de entrega `Projeto_2_PowerQuery.zip` ou no material original da atividade. A base nacional (cerca de 56 MB) não foi adicionada ao GitHub; extraia-a e deixe-a acessível localmente junto da planilha.
+1. Extraia a pasta `projeto-2-com-automacao-powerquery` do pacote zip. Ela já contém `Censo_2024_Excel.xlsx`; deixe esse arquivo e a planilha acessíveis na pasta local. Se preferir, use a cópia extraída do RAR recebido.
 2. Abra `Painel_Censo_Projeto2-Preparado.xlsx` no Excel Desktop. No Editor do Power Query, edite a consulta `ArquivoCenso` e substitua `C:\SUBSTITUA\PASTA\Censo_2024_Excel.xlsx` pelo caminho real do arquivo extraído.
 3. Confira os nomes no Gerenciador de Nomes: `UF` aponta para `Planilha1!A2` e `Municipio` para `Planilha1!B2`. Edite esses valores para o município escolhido pelo grupo (o exemplo do material é SP / Rio Claro).
 4. Clique em **Dados > Atualizar Tudo**. Verifique que a prévia da consulta `Microdados` contém somente o UF/município selecionado e que os quatro rótulos auxiliares e cinco colunas derivadas aparecem.
@@ -24,7 +24,7 @@ O arquivo contém a consulta M completa e o cache/tabela dinâmica que já exist
 ## Dados e disclaimers
 - **Inteligência Artificial:** apoio de IA na revisão do código M e da documentação; o grupo deve registrar o uso real e conferir cada transformação.
 - **Dados:** microdados e tabelas auxiliares são da base nacional Censo Escolar 2024 recebida para a atividade. O filtro inicial SP / Rio Claro é apenas o exemplo já usado em aula; substituir pelo município efetivamente escolhido.
-- **Participação:** preencher antes da entrega no eClass: `[integrantes que implementaram as consultas]`; indicar quem montou as dinâmicas/gráficos e quem realizou o teste de troca de município e atualização.
+- **Participação:** preencher antes de publicar: `[integrantes que implementaram as consultas]`; indicar quem montou as dinâmicas/gráficos e quem realizou o teste de troca de município e atualização.
 
 ## Checklist do roteiro
 - [x] Base nacional fornecida identificada e esquema verificado (215.545 linhas de escolas, 59 colunas e quatro abas auxiliares).
@@ -35,4 +35,5 @@ O arquivo contém a consulta M completa e o cache/tabela dinâmica que já exist
 - [ ] Atualizar consulta no Excel Desktop com o caminho local da base e validar amostra.
 - [ ] Finalizar/validar as tabelas e gráficos dinâmicos, segmentações e dashboard.
 - [ ] Testar troca do município e Atualizar Tudo em um clique.
-- [ ] Completar participação e relatar os testes reais antes da entrega no eClass.
+- [ ] Preencher os nomes reais de participação e os testes efetivamente realizados.
+- [x] Publicar a pasta do Projeto 2 no GitHub.

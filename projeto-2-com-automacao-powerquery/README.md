@@ -26,8 +26,8 @@ A consulta também incorpora as tabelas auxiliares de **Dependência, Localizaç
 4. Clique em **Dados > Atualizar Tudo**.
 5. Aguarde a conclusão da atualização e confira o dashboard, as tabelas dinâmicas, os gráficos dinâmicos e a segmentação de dados.
 
-## Teste de atualização automática
-A integração e os testes finais foram realizados no Excel Desktop por **Rafael Stempfer Leal**. O painel foi testado alterando o município de **São Paulo** para **Rio Claro** e executando **Atualizar Tudo**; os dados e o dashboard foram atualizados. Em seguida, o arquivo foi retornado ao recorte **SP / Rio Claro** e salvo nessa condição.
+## Testes realizados
+Os testes finais foram realizados por **João Vitor Henrique** no Excel Desktop. O município selecionado foi alterado de **São Paulo (SP)** para **Rio Claro (SP)** e, após executar **Atualizar Tudo**, foi confirmado que os dados, tabelas dinâmicas, gráficos e dashboard foram atualizados automaticamente para o município selecionado.
 
 No estado final de Rio Claro, o dashboard apresenta:
 - 143 escolas no recorte;
@@ -38,4 +38,9 @@ No estado final de Rio Claro, o dashboard apresenta:
 ## Disclaimers
 - **Inteligência Artificial:** foi utilizada assistência de IA no apoio à construção e revisão da consulta M, organização do painel e documentação.
 - **Dados:** a fonte é o arquivo `Censo_2024_Excel.xlsx` disponibilizado na atividade. O painel utiliza dados do Censo Escolar 2024 e não representa necessariamente a situação atual das escolas.
-- **Participação:** Rafael Stempfer Leal realizou a integração e os testes finais do Power Query, das tabelas/gráficos dinâmicos, da segmentação e da atualização automática no Excel Desktop. Os demais integrantes do Grupo 7 participaram da elaboração e revisão do projeto conforme a organização interna do grupo. Esta descrição pode ser detalhada pelo grupo para refletir com precisão a divisão final de tarefas.
+- **Participação:**
+  - **Rafael Stempfer Leal:** integrou a consulta do Power Query à base nacional do Censo Escolar 2024 e configurou o filtro por UF e Município.
+  - **José Antonio Medeiros:** organizou as tabelas auxiliares, ajudou na preparação dos dados no Power Query e escreveu os disclaimers do Projeto 2.
+  - **Pedro Giorgi:** organizou as tabelas dinâmicas e a estrutura das informações utilizadas no dashboard.
+  - **João Vitor Henrique:** realizou os testes finais de atualização automática no Excel Desktop e organizou o README do Projeto 2.
+  - **Pedro de Marco:** criou e organizou os gráficos dinâmicos utilizados no dashboard.

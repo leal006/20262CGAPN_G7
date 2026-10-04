@@ -26,7 +26,6 @@ Versão atualizada para utilizar a base nacional completa do Censo Escolar 2024,
 - [Abrir `projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
 
 ## Versões anteriores
-As pastas abaixo foram mantidas no repositório como registro das atividades anteriores:
 - [`projeto-1-simulador-pnae`](./projeto-1-simulador-pnae/)
 - [`projeto-2-painel-censo`](./projeto-2-painel-censo/)
 

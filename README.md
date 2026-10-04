@@ -4,48 +4,37 @@
 **Professora:** Érica Siqueira  
 **Período:** 2º semestre de 2026
 
-Este repositório reúne os Projetos 1 e 2 desenvolvidos pelo Grupo 7 ao longo da disciplina. O objetivo é apresentar, de forma organizada e reproduzível, os arquivos de análise, os artefatos produzidos e a documentação de cada projeto.
+Este repositório reúne os Projetos 1 e 2 desenvolvidos pelo Grupo 7. As versões atualizadas desta entrega incluem automação em VBA no Projeto 1 e automação com Power Query no Projeto 2.
 
 ## Integrantes
-
 - Rafael Stempfer Leal
 - José Antonio Medeiros
 - Pedro Giorgi
 - João Vitor Henrique
 - Pedro de Marco
-## Projetos
 
-### Projeto 1 — Simulador de Repasse do PNAE
+## Entrega atual
 
-Simulador em Excel e artefato HTML interativo para estimar o repasse anual do Programa Nacional de Alimentação Escolar (PNAE) a partir das matrículas por modalidade de ensino e dos valores per capita utilizados no exercício.
+### Projeto 1 — Simulador de Repasse do PNAE com automação VBA
+Versão atualizada com o campo **Usuário** integrado ao fluxo de registro da macro `RegistrarSimulacao`.
 
-- Versão original: [`projeto-1-simulador-pnae`](./projeto-1-simulador-pnae/)
-- Versão (VBA): [`projeto-1-atualizado-com-automacao-vba`](./projeto-1-atualizado-com-automacao-vba/)
+- [Abrir `projeto-1-atualizado-com-automacao-vba`](./projeto-1-atualizado-com-automacao-vba/)
 
-### Projeto 2 — Painel do Censo Escolar
+### Projeto 2 — Painel do Censo Escolar 2024 com Power Query
+Versão atualizada para utilizar a base nacional completa do Censo Escolar 2024, filtrada por **UF + Município** dentro do Power Query, com tabelas dinâmicas, gráficos dinâmicos, segmentação e dashboard.
 
-Planilha de análise dos Microdados do Censo Escolar da Educação Básica 2024, com tratamento de variáveis, tabelas dinâmicas, gráfico dinâmico, segmentação e dashboard.
+- [Abrir `projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
 
-- Versão original: [`projeto-2-painel-censo`](./projeto-2-painel-censo/)
-- Versão (Power Query): [`projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
+## Versões anteriores
+As pastas abaixo foram mantidas no repositório como registro das atividades anteriores:
+- [`projeto-1-simulador-pnae`](./projeto-1-simulador-pnae/)
+- [`projeto-2-painel-censo`](./projeto-2-painel-censo/)
 
 ## Documentação
-
-Cada projeto possui um README próprio contendo:
-
-- objetivo do projeto;
+Cada pasta da entrega atual possui um README próprio com:
+- objetivo;
+- arquivos;
 - instruções de uso;
-- fonte dos dados;
-- registro do uso de inteligência artificial;
-- participação do grupo.
-
-### Papel de cada participante 
-
-`Organização do repositório: a publicação e organização dos arquivos no GitHub foram centralizadas em um computador, enquanto a elaboração e revisão dos projetos foram realizadas pelo grupo conforme a divisão de tarefas descrita abaixo.`
-
-- **Rafael Stempfer Leal:** Criou o repositório, adicionou os colaboradores, escreveu o README do projeto 1; 
-- **José Antonio Medeiros:** Subiu os arquivos do projeto 1 e escreveu o README do projeto 2;
-- **Pedro Giorgi:** Reuniu os prints, registrou a entrega no Eclass e fez os disclaimers do projeto 2;  
-- **João Vitor Henrique:** Fez os disclaimers do projeto 1 e escreveu o README do projeto 2;
-- **Pedro de Marco:** Subiu os arquivos do projeto 2, organizou todas as pastas e escreveu o README do projeto 1; 
-  
+- alterações realizadas;
+- testes/validações;
+- disclaimers de Inteligência Artificial, Dados e Participação.

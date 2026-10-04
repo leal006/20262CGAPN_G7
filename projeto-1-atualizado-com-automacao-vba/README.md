@@ -1,32 +1,38 @@
-# Projeto 1 — Simulador de Repasse do PNAE com VBA
+# Projeto 1 — Simulador de Repasse do PNAE com automação VBA
+
+## Grupo e repositório
+Grupo 7 — Rafael Stempfer Leal, José Antonio Medeiros, Pedro Giorgi, João Vitor Henrique e Pedro de Marco.
+
+Repositório: https://github.com/leal006/20262CGAPN_G7
 
 ## Objetivo
-Registrar cada cenário de repasse com data/hora, fator de ajuste, racional, resultado calculado e nome de quem executou a simulação.
-
-## Como usar
-1. Abra `Simulador-PNAE-Projeto1-Atualizado.xlsm` no Excel Desktop e habilite macros quando o Excel solicitar.
-2. No campo **Usuário da Simulação** (C22), informe seu nome. Preencha o racional (C25) e o fator de ajuste (C26).
-3. Clique em **Salvar Simulação**. A macro registra os valores nas colunas A:G da aba `Banco_de_Dados` e limpa C22, C25 e C26.
-4. Para instalar a versão final da macro: pressione `Alt+F11` (Windows) ou `Option+F11`/menu Desenvolvedor > Visual Basic (Mac); remova o módulo antigo `modSimulador` e importe `modSimulador.bas` em **File > Import File**; salve como `.xlsm`. O botão existente continua associado a `RegistrarSimulacao`.
-5. Teste com pelo menos duas simulações preenchidas e uma tentativa com Usuário em branco; confira que a tentativa inválida não cria linha.
+Automatizar o registro das simulações do PNAE no Excel, incluindo a identificação do usuário responsável por cada simulação. A solução mantém a lógica original do simulador e adiciona o tratamento completo do campo **Usuário** no VBA.
 
 ## Arquivos
-- `Simulador-PNAE-Projeto1-Atualizado.xlsm`: campo Usuário na tela e coluna G no banco; o VBA original ainda precisa ser substituído pelo módulo `.bas` incluído.
-- `modSimulador.bas`: versão completa do módulo com leitura, validação, gravação e limpeza do Usuário.
+- `Simulador-PNAE-Projeto1.xlsm`: planilha habilitada para macro com o campo Usuário integrado e a automação funcionando.
+- `modRegistrarSimulacao.bas`: código-fonte do módulo VBA usado pela automação.
 
-## Dados e regras
-Escola e matrículas são fictícias para fins didáticos. Os valores per capita e a regra do repasse estão identificados no simulador como baseados na Resolução CD/FNDE nº 1/2026. A base Censo não é usada no Projeto 1.
+## O que foi implementado
+- Campo **Usuário** na aba `Simulador_Escola`, célula `B22`.
+- Leitura do usuário em `RegistrarSimulacao`.
+- Validação que impede o registro quando o campo Usuário está vazio.
+- Gravação do usuário na coluna `G` da aba `Banco_de_Dados`.
+- Limpeza do campo Usuário após o registro, junto com Racional da Taxa e Fator de Ajuste.
+- Manutenção das referências originais `C25` (Racional da Taxa) e `C26` (Fator de Ajuste).
+- Botão de salvamento executando a macro `RegistrarSimulacao`.
+
+## Como usar
+1. Abra `Simulador-PNAE-Projeto1.xlsm` no Excel Desktop.
+2. Habilite as macros para o arquivo.
+3. Na aba `Simulador_Escola`, informe o nome do usuário em `B22`, o Racional da Taxa em `C25` e o Fator de Ajuste em `C26`.
+4. Clique no botão **Salvar Simulação**.
+5. Confira o novo registro na aba `Banco_de_Dados`, nas colunas `A:G`.
+6. Se o campo Usuário estiver vazio, o registro é bloqueado e uma mensagem de validação é exibida.
+
+## Testes realizados
+A integração e os testes finais foram realizados no Excel Desktop por **Rafael Stempfer Leal**. Foram verificadas a execução do botão, a gravação das simulações no banco de dados, o preenchimento da coluna Usuário e a validação do campo obrigatório. A versão final contém registros de teste da automação.
 
 ## Disclaimers
-- **Inteligência Artificial:** apoio de IA na preparação/revisão do código e da documentação. O grupo deve registrar o uso real feito e revisar o código antes da entrega.
-- **Dados:** a escola e as matrículas do simulador são fictícias; os parâmetros per capita são os apresentados no próprio arquivo de atividade.
-- **Participação:** preencher antes de publicar: `[nome(s) de quem implementou/importou o módulo]`; teste realizado por `[nomes]` em `[data]`, com `[quantidade]` cenários válidos e uma tentativa com Usuário em branco. Não afirmar teste concluído até executá-lo no Excel Desktop.
-
-## Checklist do roteiro
-- [x] Campo Usuário criado na tela sem deslocar as células C25/C26.
-- [x] Coluna G (`Usuário`) adicionada ao banco de dados.
-- [x] Código VBA final incluído em arquivo `.bas` com leitura, validação, gravação e limpeza.
-- [ ] Importar/substituir módulo no Excel Desktop e salvar o `.xlsm` final.
-- [ ] Testar macro pelo botão com 2–3 cenários, incluindo Usuário vazio.
-- [ ] Preencher os nomes reais de participação e os testes efetivamente realizados.
-- [x] Publicar a pasta do Projeto 1 no GitHub.
+- **Inteligência Artificial:** foi utilizada assistência de IA no apoio à implementação, revisão do código VBA, organização da documentação e validação da estrutura da entrega.
+- **Dados:** os dados de escola utilizados no simulador são fictícios e têm finalidade didática; parâmetros e regras de cálculo seguem o material disponibilizado na disciplina.
+- **Participação:** Rafael Stempfer Leal realizou a integração do campo Usuário e os testes finais da automação no Excel Desktop. Os demais integrantes do Grupo 7 participaram da elaboração e revisão do projeto conforme a organização interna do grupo. Esta descrição pode ser detalhada pelo grupo para refletir com precisão a divisão final de tarefas.

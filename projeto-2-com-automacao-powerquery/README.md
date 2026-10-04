@@ -1,39 +1,46 @@
-# Projeto 2 — Painel do Censo Escolar com Power Query
+# Projeto 2 — Painel do Censo Escolar 2024 com Power Query
+
+## Grupo e repositório
+Grupo 7 — Rafael Stempfer Leal, José Antonio Medeiros, Pedro Giorgi, João Vitor Henrique e Pedro de Marco.
+
+Repositório: https://github.com/leal006/20262CGAPN_G7
 
 ## Objetivo
-Tratar a base nacional do Censo Escolar 2024 no Power Query, filtrar primeiro pelo UF e município informados, enriquecer os registros com quatro tabelas auxiliares e permitir atualização do painel.
+Construir um painel automatizado do Censo Escolar 2024 que utilize a base nacional completa e aplique, dentro do Power Query, o filtro de **UF + Município** escolhido pelo grupo antes das demais transformações. O arquivo final está salvo com o recorte **SP / Rio Claro**.
 
-## O que foi atualizado
-- A planilha parte do arquivo de Aula 10 e conserva a estrutura de consultas, tabela de filtro e tabela dinâmica que já existiam.
-- O código M completo foi incluído na planilha e também em `PowerQuery_Completo.m`. A consulta `Microdados` filtra o município por junção interna antes dos quatro merges Left Outer.
-- A classificação usa as faixas praticadas na consulta de Aula 10: até 50, Microescola; até 200, Pequena; até 500, Média; até 1.000, Grande; até 5.000, Muito Grande; acima disso, Mega escola.
-- Água, Energia, Esgoto e Lixo usam a primeira coluna binária marcada com 1, na ordem dos campos do Censo.
-- Os campos nomeados `UF` e `Municipio` apontam para as duas células da tabela de filtro existente (Planilha1!A2:B2); o padrão inicial permanece SP / Rio Claro.
-- A atualização em segundo plano foi desligada na conexão principal e a tabela dinâmica existente está marcada para atualizar ao abrir.
+## Arquivos
+- `painel-censo-escolar-2024.xlsx`: planilha final com filtro de município, consulta Power Query, tabela tratada, tabelas dinâmicas, gráficos dinâmicos, segmentação de dados e dashboard.
+- `Consulta_DadosTratados.pq`: código M da consulta principal `DadosTratados`.
 
-## Como terminar a configuração no Excel Desktop
-1. Extraia a pasta `projeto-2-com-automacao-powerquery` do pacote zip. Ela já contém `Censo_2024_Excel.xlsx`; deixe esse arquivo e a planilha acessíveis na pasta local. Se preferir, use a cópia extraída do RAR recebido.
-2. Abra `Painel_Censo_Projeto2-Preparado.xlsx` no Excel Desktop. No Editor do Power Query, edite a consulta `ArquivoCenso` e substitua `C:\SUBSTITUA\PASTA\Censo_2024_Excel.xlsx` pelo caminho real do arquivo extraído.
-3. Confira os nomes no Gerenciador de Nomes: `UF` aponta para `Planilha1!A2` e `Municipio` para `Planilha1!B2`. Edite esses valores para o município escolhido pelo grupo (o exemplo do material é SP / Rio Claro).
-4. Clique em **Dados > Atualizar Tudo**. Verifique que a prévia da consulta `Microdados` contém somente o UF/município selecionado e que os quatro rótulos auxiliares e cinco colunas derivadas aparecem.
-5. Atualize a tabela dinâmica. Crie/ajuste gráfico(s) dinâmico(s) e segmentação(ões) na aba de painel conforme os campos escolhidos pelo grupo. Altere UF/município e repita **Atualizar Tudo** para validar a atualização em um clique.
+## O que mudou em relação à versão anterior
+Na versão anterior, o trabalho utilizava um recorte de São Paulo/Rio Claro preparado para a atividade em sala. Nesta versão, a consulta parte da **base nacional completa do Censo Escolar 2024** e reduz os dados ao município selecionado dentro do Power Query, antes das tabelas dinâmicas e do dashboard.
 
-## Limitação desta preparação
-O arquivo contém a consulta M completa e o cache/tabela dinâmica que já existiam na planilha de aula. O painel final com gráfico(s) dinâmico(s), segmentação(ões) e teste real de atualização precisa ser concluído/validado no Excel Desktop; esses objetos e a execução do motor Power Query não puderam ser confirmados neste ambiente.
+A consulta também incorpora as tabelas auxiliares de **Dependência, Localização, Localização Diferenciada e Situação**.
 
-## Dados e disclaimers
-- **Inteligência Artificial:** apoio de IA na revisão do código M e da documentação; o grupo deve registrar o uso real e conferir cada transformação.
-- **Dados:** microdados e tabelas auxiliares são da base nacional Censo Escolar 2024 recebida para a atividade. O filtro inicial SP / Rio Claro é apenas o exemplo já usado em aula; substituir pelo município efetivamente escolhido.
-- **Participação:** preencher antes de publicar: `[integrantes que implementaram as consultas]`; indicar quem montou as dinâmicas/gráficos e quem realizou o teste de troca de município e atualização.
+## Tratamento no Power Query
+- Filtro por `SG_UF` + `NO_MUNICIPIO` com **Inner Join** antes dos merges de dimensão.
+- **Left Join** para Dependência, Localização, Localização Diferenciada e Situação.
+- Criação da coluna `TAMANHO_ESCOLA` a partir das faixas de matrícula.
+- Criação dos indicadores de infraestrutura `AGUA`, `ENERGIA`, `ESGOTO` e `LIXO`, seguindo a prioridade da primeira coluna binária marcada com valor 1.
+- Consulta principal configurada sem atualização em segundo plano para que **Atualizar Tudo** respeite a conclusão do Power Query antes da atualização dos objetos dinâmicos.
 
-## Checklist do roteiro
-- [x] Base nacional fornecida identificada e esquema verificado (215.545 linhas de escolas, 59 colunas e quatro abas auxiliares).
-- [x] Consulta M filtrando por UF e Município em Inner Join antes dos merges.
-- [x] Quatro merges Left Outer: Dependência, Localização, Localização Diferenciada e Situação.
-- [x] Coluna Tamanho da Escola e indicadores Água, Energia, Esgoto e Lixo descritos no M.
-- [x] Dois nomes definidos no Excel e consulta principal sem atualização em segundo plano.
-- [ ] Atualizar consulta no Excel Desktop com o caminho local da base e validar amostra.
-- [ ] Finalizar/validar as tabelas e gráficos dinâmicos, segmentações e dashboard.
-- [ ] Testar troca do município e Atualizar Tudo em um clique.
-- [ ] Preencher os nomes reais de participação e os testes efetivamente realizados.
-- [x] Publicar a pasta do Projeto 2 no GitHub.
+## Como usar
+1. Mantenha o arquivo nacional `Censo_2024_Excel.xlsx` em um local acessível no computador.
+2. Na aba `Filtro_Municipio`, informe em `B5` o caminho completo desse arquivo. A célula nomeada `CensoCaminho` aponta para esse endereço.
+3. Informe a UF em `B2` e o Município em `B3`. As células estão nomeadas como `UF` e `Município`, e a tabela `FiltroMunicipio` utiliza esses valores para o filtro da consulta.
+4. Clique em **Dados > Atualizar Tudo**.
+5. Aguarde a conclusão da atualização e confira o dashboard, as tabelas dinâmicas, os gráficos dinâmicos e a segmentação de dados.
+
+## Teste de atualização automática
+A integração e os testes finais foram realizados no Excel Desktop por **Rafael Stempfer Leal**. O painel foi testado alterando o município de **Rio Claro** para **Limeira** e executando **Atualizar Tudo**; os dados e o dashboard foram atualizados. Em seguida, o arquivo foi retornado ao recorte **SP / Rio Claro** e salvo nessa condição.
+
+No estado final de Rio Claro, o dashboard apresenta:
+- 143 escolas no recorte;
+- 122 escolas ativas;
+- 43.081 matrículas da Educação Básica;
+- 101 escolas públicas.
+
+## Disclaimers
+- **Inteligência Artificial:** foi utilizada assistência de IA no apoio à construção e revisão da consulta M, organização do painel, documentação e conferência da entrega.
+- **Dados:** a fonte é o arquivo `Censo_2024_Excel.xlsx` disponibilizado na atividade. O painel utiliza dados do Censo Escolar 2024 e não representa necessariamente a situação atual das escolas.
+- **Participação:** Rafael Stempfer Leal realizou a integração e os testes finais do Power Query, das tabelas/gráficos dinâmicos, da segmentação e da atualização automática no Excel Desktop. Os demais integrantes do Grupo 7 participaram da elaboração e revisão do projeto conforme a organização interna do grupo. Esta descrição pode ser detalhada pelo grupo para refletir com precisão a divisão final de tarefas.

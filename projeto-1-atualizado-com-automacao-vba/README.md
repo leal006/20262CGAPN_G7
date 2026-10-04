@@ -25,7 +25,7 @@ Automatizar o registro das simulações do PNAE no Excel, incluindo a identifica
 6. Se o campo Usuário estiver vazio, o registro é bloqueado e uma mensagem de validação é exibida.
 
 ## Testes realizados
-A integração e os testes finais foram realizados no Excel por **Rafael Stempfer Leal**. Foram verificadas a execução do botão, a gravação das simulações no banco de dados, o preenchimento da coluna Usuário e a validação do campo obrigatório. A versão final contém registros de teste da automação.
+Os testes finais foram realizados no Excel Desktop por **Rafael Stempfer Leal**. A automação foi testada com registros contendo o campo Usuário preenchido e também com uma tentativa de registro com o campo Usuário vazio. Foi verificado que, com o campo preenchido, os dados eram salvos corretamente na aba `Banco_de_Dados` e que, quando o campo estava vazio, a macro bloqueava o registro e exibia a mensagem de validação. Também foram conferidos o funcionamento do botão **Salvar Simulação**, a gravação da coluna Usuário e a limpeza dos campos após o registro.
 
 ## Disclaimers
 - **Inteligência Artificial:** foi utilizada assistência de IA no apoio à implementação, revisão do código VBA, organização da documentação e validação da estrutura da entrega.
@@ -37,5 +37,3 @@ A integração e os testes finais foram realizados no Excel por **Rafael Stempfe
   - **João Vitor Henrique:** escreveu os disclaimers e o texto do README do Projeto 1.
   - **Pedro de Marco:** organizou a pasta do Projeto 1 e estruturou os arquivos no GitHub.
 
-### Testes realizados
-A automação foi testada no Excel Desktop com registros de simulações contendo o campo Usuário preenchido e também com o campo Usuário vazio. Foi verificado que, com o campo preenchido, os dados eram salvos corretamente na aba `Banco_de_Dados` e, quando o campo estava vazio, a macro bloqueava o registro e exibia a mensagem de validação.

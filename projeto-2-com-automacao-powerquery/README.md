@@ -40,7 +40,7 @@ No estado final de Rio Claro, o dashboard apresenta:
 - **Dados:** a fonte é o arquivo `Censo_2024_Excel.xlsx` disponibilizado na atividade. O painel utiliza dados do Censo Escolar 2024 e não representa necessariamente a situação atual das escolas.
 - **Participação:**
   - **Rafael Stempfer Leal:** integrou a consulta do Power Query à base nacional do Censo Escolar 2024 e configurou o filtro por UF e Município.
-  - **José Antonio Medeiros:** organizou as tabelas auxiliares, ajudou na preparação dos dados no Power Query e escreveu os disclaimers do Projeto 2.
+  - **José Antonio Medeiros:** preparou as tabelas auxiliares utilizadas no projeto, auxiliou na organização dos dados no Power Query e escreveu os disclaimers do Projeto 2.
   - **Pedro Giorgi:** organizou as tabelas dinâmicas e a estrutura das informações utilizadas no dashboard.
   - **João Vitor Henrique:** realizou os testes finais de atualização automática no Excel Desktop e organizou o README do Projeto 2.
-  - **Pedro de Marco:** criou e organizou os gráficos dinâmicos utilizados no dashboard.
+  - **Pedro de Marco:** montou os gráficos dinâmicos e ajudou na organização visual do dashboard.

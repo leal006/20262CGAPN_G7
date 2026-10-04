@@ -32,6 +32,7 @@ A integração e os testes finais foram realizados no Excel por **Rafael Stempfe
 
 ## Disclaimers
 - **Inteligência Artificial:** foi utilizada assistência de IA no apoio à implementação, revisão do código VBA, organização da documentação e validação da estrutura da entrega.
+- **Dados:** os dados utilizados no simulador têm finalidade didática. Os valores e parâmetros do PNAE seguem o material disponibilizado na disciplina e a planilha-base utilizada no projeto.
 - **Participação:**
   - **Rafael Stempfer Leal:** implementou o campo Usuário na planilha, integrou o código VBA e realizou os testes finais da macro `RegistrarSimulacao` no Excel Desktop.
   - **José Antonio Medeiros:** organizou a estrutura da planilha e escreveu a documentação do Projeto 1.

@@ -1,8 +1,5 @@
 # Projeto 1 — Simulador de Repasse do PNAE com automação VBA
 
-## Grupo 
-Grupo 7 — Rafael Stempfer Leal, José Antonio Medeiros, Pedro Giorgi, João Vitor Henrique e Pedro de Marco.
-
 ## Objetivo
 Automatizar o registro das simulações do PNAE no Excel, incluindo a identificação do usuário responsável por cada simulação. A solução mantém a lógica original do simulador e adiciona o tratamento completo do campo **Usuário** no VBA.
 

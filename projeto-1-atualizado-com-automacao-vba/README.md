@@ -32,4 +32,12 @@ A integração e os testes finais foram realizados no Excel por **Rafael Stempfe
 
 ## Disclaimers
 - **Inteligência Artificial:** foi utilizada assistência de IA no apoio à implementação, revisão do código VBA, organização da documentação e validação da estrutura da entrega.
-- **Participação:** Rafael Stempfer Leal realizou a integração do campo Usuário e os testes finais da automação no Excel Desktop. Os demais integrantes do Grupo 7 participaram da elaboração e revisão do projeto conforme a organização interna do grupo. Esta descrição pode ser detalhada pelo grupo para refletir com precisão a divisão final de tarefas.
+- **Participação:**
+  - **Rafael Stempfer Leal:** implementou o campo Usuário na planilha, integrou o código VBA e realizou os testes finais da macro `RegistrarSimulacao` no Excel Desktop.
+  - **José Antonio Medeiros:** organizou a estrutura da planilha e escreveu a documentação do Projeto 1.
+  - **Pedro Giorgi:** realizou a conferência do funcionamento do simulador e organizou os arquivos da entrega.
+  - **João Vitor Henrique:** escreveu os disclaimers e o texto do README do Projeto 1.
+  - **Pedro de Marco:** organizou a pasta do Projeto 1 e estruturou os arquivos no GitHub.
+
+### Testes realizados
+A automação foi testada no Excel Desktop com registros de simulações contendo o campo Usuário preenchido e também com o campo Usuário vazio. Foi verificado que, com o campo preenchido, os dados eram salvos corretamente na aba `Banco_de_Dados` e, quando o campo estava vazio, a macro bloqueava o registro e exibia a mensagem de validação.

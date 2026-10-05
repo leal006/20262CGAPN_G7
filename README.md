@@ -21,7 +21,7 @@ Versão atualizada com o campo **Usuário** integrado ao fluxo de registro da ma
 - [Abrir `projeto-1-atualizado-com-automacao-vba`](./projeto-1-atualizado-com-automacao-vba/)
 
 ### Projeto 2 — Painel do Censo Escolar 2024 com Power Query
-Versão atualizada para utilizar a base nacional completa do Censo Escolar 2024, filtrada por **UF + Município** dentro do Power Query, com tabelas dinâmicas, gráficos dinâmicos, segmentação e dashboard.
+Versão atualizada para utilizar a base nacional completa do Censo Escolar 2024, filtrada por **UF + Município** dentro do Power Query, com **9 gráficos dinâmicos**, indicadores de infraestrutura e perfil das matrículas, além das segmentações de **Localização** e **Dependência**.
 
 - [Abrir `projeto-2-com-automacao-powerquery`](./projeto-2-com-automacao-powerquery/)
 

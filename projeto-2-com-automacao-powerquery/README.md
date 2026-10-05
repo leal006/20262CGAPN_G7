@@ -19,6 +19,24 @@ A consulta também incorpora as tabelas auxiliares de **Dependência, Localizaç
 - Criação dos indicadores de infraestrutura `AGUA`, `ENERGIA`, `ESGOTO` e `LIXO`, seguindo a prioridade da primeira coluna binária marcada com valor 1.
 - Consulta principal configurada sem atualização em segundo plano para que **Atualizar Tudo** respeite a conclusão do Power Query antes da atualização dos objetos dinâmicos.
 
+## Dashboard
+O dashboard final reúne **9 gráficos dinâmicos**, cobrindo:
+- Dependência administrativa;
+- Porte da escola;
+- Água;
+- Energia;
+- Esgoto;
+- Lixo;
+- Sexo;
+- Raça/Cor;
+- Etapa de ensino.
+
+Também foram incluídas duas segmentações de dados para análise interativa:
+- **Localização**;
+- **Dependência**.
+
+As segmentações foram conectadas às tabelas dinâmicas do painel e testadas no Excel Desktop. As tabelas dinâmicas foram reorganizadas para evitar sobreposição durante a aplicação dos filtros.
+
 ## Como usar
 1. Mantenha o arquivo nacional `Censo_2024_Excel.xlsx` em um local acessível no computador.
 2. Na aba `Filtro_Municipio`, informe em `B5` o caminho completo desse arquivo. A célula nomeada `CensoCaminho` aponta para esse endereço.
@@ -27,7 +45,7 @@ A consulta também incorpora as tabelas auxiliares de **Dependência, Localizaç
 5. Aguarde a conclusão da atualização e confira o dashboard, as tabelas dinâmicas, os gráficos dinâmicos e a segmentação de dados.
 
 ## Testes realizados
-Os testes finais foram realizados por **João Vitor Henrique** no Excel Desktop. O município selecionado foi alterado de **São Paulo (SP)** para **Rio Claro (SP)** e, após executar **Atualizar Tudo**, foi confirmado que os dados, tabelas dinâmicas, gráficos e dashboard foram atualizados automaticamente para o município selecionado.
+Os testes finais foram realizados por **João Vitor Henrique** no Excel Desktop. O município selecionado foi alterado de **São Paulo (SP)** para **Rio Claro (SP)** e, após executar **Atualizar Tudo**, foi confirmado que os dados, tabelas dinâmicas, gráficos e dashboard foram atualizados automaticamente para o município selecionado. Também foram testadas as segmentações de **Localização** e **Dependência**, verificando a atualização dos gráficos sem sobreposição das tabelas dinâmicas.
 
 No estado final de Rio Claro, o dashboard apresenta:
 - 143 escolas no recorte;

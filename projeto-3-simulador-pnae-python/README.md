@@ -135,10 +135,6 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 
 **Para que foi usada:** apoio à análise do enunciado, consulta e organização de fontes públicas, adaptação do simulador do grupo para as três modalidades exigidas, implementação da cobertura federal, escrita inicial da documentação e preparação de testes. O grupo precisa ler, conferir e assumir responsabilidade por todo o material antes do envio.
 
-**Exemplos reais de prompts utilizados:** “sobre os projetos 1 e 2 estao no github da uma olhada la e pega. Ve se está tudo ai certinho chat” (localização dos projetos anteriores) e “pode ja ir colocando no github mas cuidado para nn mexer no projeto 1 e 2” (organização da publicação).
-
-**O que foi ajustado manualmente depois da IA:** Rafael revisou o código no JupyterLab e transferiu sua versão modificada para o VS Code, salvando o arquivo `.py` e executando-o no terminal. Foram ajustados comentários e mensagens de apresentação e conferido o resultado da escola real (304 matrículas, repasse de R$ 34.656,00). A participação dos demais integrantes deve ser validada pelo grupo antes da entrega.
-
 ## Fonte de Dados
 
 **Fontes oficiais:**
@@ -154,7 +150,7 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 
 ## Participação do Grupo
 
-**O que aprendemos com este projeto:** a proposta permite comparar os repasses federais por etapa de ensino com uma referência documentada de custo de ingredientes; também exercita entrada e validação de dados, funções, operações aritméticas, estruturas condicionais e documentação reprodutível em Python. Esse é o aprendizado técnico associado ao trabalho; o grupo deve conferir a redação com os integrantes antes da entrega.
+**O que aprendemos com este projeto:** Esse trabalho nos deu a possibilidade de comparar os repasses federais por etapa de ensino com uma referência documentada de custo de ingredientes; também exercita entrada e validação de dados, funções, operações aritméticas, estruturas condicionais e documentação reprodutível em Python. Esse é o aprendizado técnico associado ao trabalho; o grupo deve conferir a redação com os integrantes antes da entrega.
 
 **Divisão de responsabilidades informada para o grupo (confirmar a realização efetiva antes da entrega):**
 
@@ -164,4 +160,4 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 - **Pedro de Marco:** testes, conferência dos cálculos e preparação dos prints.
 - **Pedro Giorgi:** documentação no README, reflexão e organização no GitHub.
 
-> **Antes da entrega:** confirmar a participação efetiva de cada integrante e acrescentar as capturas reais do terminal. Este README pode ser atualizado depois sem alterar os Projetos 1 e 2.
+

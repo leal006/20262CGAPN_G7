@@ -10,17 +10,14 @@ Este programa simula o repasse federal anual do Programa Nacional de Alimentaç�
 
 ## Como usar
 
-1. Tenha o **Python 3** instalado. O simulador não precisa de pacotes adicionais.
-2. Baixe `simulador_pnae.py` e abra um terminal na pasta do arquivo.
-3. Execute:
+1. Baixe `simulador_pnae.py` e abra um terminal na pasta do arquivo.
+2. Execute:
 
    ```bash
    python simulador_pnae.py
    ```
-
-   Se necessário, use `python3 simulador_pnae.py` no macOS/Linux.
 4. Digite o nome da escola e as matrículas de **creche**, **pré-escola** e **ensino fundamental**, sempre como números inteiros iguais ou maiores que zero. Para etapas não oferecidas pela escola, digite **0**.
-5. Leia o total de matrículas, o porte (classificação didática), o repasse anual, o custo anual estimado dos alimentos, a cobertura percentual e a diferença a complementar.
+5. Leia o total de matrículas, o porte, o repasse anual, o custo anual estimado dos alimentos, a cobertura percentual e a diferença a complementar.
 
 O programa utiliza as constantes `DIAS_LETIVOS`, `PER_CAPITA_CRECHE`, `PER_CAPITA_PRE_ESCOLA`, `PER_CAPITA_FUNDAMENTAL` e `CUSTO_ALIMENTOS_REFEICAO` no início do arquivo.
 
@@ -76,8 +73,6 @@ A planilha fornecida agrega educação infantil em `QT_MAT_INF`; ela não possui
 **Link:** https://pmc.ncbi.nlm.nih.gov/articles/PMC12448751/
 
 **Justificativa:** o valor provém de pesquisa com preços de ingredientes efetivamente adquiridos para alimentação escolar e considera a mesma etapa de ensino da escola escolhida (fundamental). Por isso, é uma referência transparente para o exercício de estimar a cobertura do repasse federal.
-
-**Ressalvas importantes:** os preços são de **2021**, de **outro estado e município**, embora o artigo tenha sido publicado em 2025. Não representam o custo observado em Osasco em 2024 nem o preço de mercado de Osasco em 2026; não foram atualizados pela inflação. A estrutura dos cardápios, o tamanho das porções, a forma de compra e os preços locais podem alterar bastante os resultados. A estimativa parte de **uma refeição principal por aluno a cada um dos 200 dias letivos**. O valor foi adotado como hipótese comparativa, não como afirmação sobre despesa municipal real.
 
 ## Resultados e reflexão
 

@@ -133,7 +133,11 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 
 **Ferramenta utilizada:** ChatGPT (OpenAI).
 
-**Para que foi usada:** apoio à análise do enunciado, consulta e organização de fontes públicas, adaptação do simulador do grupo para as três modalidades exigidas, implementação da cobertura federal, escrita inicial da documentação e preparação de testes. O grupo precisa ler, conferir e assumir responsabilidade por todo o material antes do envio.
+**Para que foi usada:** apoio à análise do enunciado, organização de fontes públicas, adaptação do simulador para as três etapas de ensino exigidas, implementação da cobertura do repasse, preparação de testes e elaboração inicial da documentação.
+
+**Exemplo de prompt real utilizado:** “ela pede os dados ou pode colocar qualqueer valor de lacnhe por exemplo?” (pergunta feita para esclarecer a exigência de usar um custo de alimentos fundamentado em fonte verificável).
+
+**O que foi ajustado manualmente depois do uso da IA:** o código foi revisado no JupyterLab, copiado para o VS Code e salvo como `simulador_pnae.py`; foram personalizados comentários e mensagens de apresentação e executados os testes com a escola real e com os valores de validação do Projeto 1.
 
 ## Fonte de Dados
 
@@ -150,9 +154,9 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 
 ## Participação do Grupo
 
-**O que aprendemos com este projeto:** Esse trabalho nos deu a possibilidade de comparar os repasses federais por etapa de ensino com uma referência documentada de custo de ingredientes; também exercita entrada e validação de dados, funções, operações aritméticas, estruturas condicionais e documentação reprodutível em Python. Esse é o aprendizado técnico associado ao trabalho; o grupo deve conferir a redação com os integrantes antes da entrega.
+**O que aprendemos com este projeto:** Esse trabalho nos deu a possibilidade de comparar os repasses federais por etapa de ensino com uma referência documentada de custo de ingredientes; também exercita entrada e validação de dados, funções, operações aritméticas, estruturas condicionais e documentação reprodutível em Python. A comparação mostrou também por que o resultado é uma estimativa e depende da qualidade dos dados e da fonte de custos adotada.
 
-**Divisão de responsabilidades informada para o grupo (confirmar a realização efetiva antes da entrega):**
+**Divisão de responsabilidades informada pelo grupo:**
 
 - **Rafael Leal:** desenvolvimento do simulador em Python.
 - **José Antonio:** pesquisa e seleção da escola no Censo Escolar 2024.

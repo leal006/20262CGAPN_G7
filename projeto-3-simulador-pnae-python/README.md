@@ -25,13 +25,13 @@ O programa utiliza as constantes `DIAS_LETIVOS`, `PER_CAPITA_CRECHE`, `PER_CAPIT
 
 **Execução com escola real — Censo Escolar 2024:**
 
-Registro da execução com a escola real: consultar `prints/saida_escola_real.txt`. **A captura de tela correspondente será acrescentada pelo grupo antes da entrega no eClass.**
+![Terminal do simulador com a escola real de Osasco e os resultados](prints/terminal_escola_real.png)
 
 **Teste de validação do Projeto 1:**
 
-Registro do teste de validação: consultar `prints/saida_validacao_projeto1.txt`. **A captura de tela correspondente será acrescentada pelo grupo antes da entrega no eClass.**
+![Terminal do simulador com 60 alunos de creche, 80 de pré-escola e 50 do ensino fundamental](prints/terminal_validacao_projeto1.png)
 
-As saídas de texto correspondentes também estão preservadas em `prints/saida_escola_real.txt` e `prints/saida_validacao_projeto1.txt` para conferência.
+Os resultados também estão preservados em `prints/saida_escola_real.txt` e `prints/saida_validacao_projeto1.txt` para conferência.
 
 ## Escola simulada
 

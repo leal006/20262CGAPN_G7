@@ -1,0 +1,14 @@
+SIMULADOR DE REPASSE DO PNAE — PROJETO 3
+Escola: Escola fictícia de validação
+Dias letivos: 200
+Creche: 60
+Pré-escola: 80
+Ensino fundamental: 50
+Total de matrículas consideradas: 190
+Porte (critério didático): Pequena
+Repasse federal anual estimado: R$ 37.660,00
+Custo de alimentos por refeição: R$ 4,50
+Custo anual estimado dos alimentos: R$ 171.000,00
+Cobertura do repasse federal: 22,02%
+Diferença a ser coberta por outras fontes: R$ 133.340,00
+Situação: é necessária complementação de outras fontes.

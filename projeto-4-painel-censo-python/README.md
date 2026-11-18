@@ -42,41 +42,41 @@ Mantenha `painel.py` e `escolas_sp_regioes_2024_geo.csv` **na mesma pasta**. O c
 
 ## Prints do resultado
 
-As capturas abaixo foram feitas durante a execução do painel no Streamlit, com **duas combinações diferentes de filtros**. Para cada cenário, registramos os indicadores, os gráficos, o mapa e a lista de escolas.
+As capturas abaixo registram duas combinações de filtros durante a execução local do Streamlit. Em ambos os cenários, município e porte permanecem em "Todos".
 
-### Cenário 1 — Vale do Ribeira / Barra do Turvo / Porte Média
+### Cenário 1 — Todas as regiões
 
-O painel selecionou **1 escola** com **237 matrículas**. Na lista, a escola aparece como municipal, urbana e com abastecimento de água e esgoto pela rede pública.
+O painel apresenta **3.110 escolas e 1.153.026 matrículas** no recorte de 30 municípios.
 
-**Filtros, indicadores e gráficos de características:**
+**Título, filtros, indicadores e gráficos de características:**
 
-![Filtros e indicadores de Barra do Turvo, com 1 escola e 237 matrículas](prints/barra_do_turvo_indicadores.png)
+![Visão geral: 3.110 escolas e 1.153.026 matrículas](prints/todas_indicadores.png)
+
+**Gráficos de infraestrutura:**
+
+![Abastecimento de água e esgotamento sanitário no recorte completo](prints/todas_infraestrutura.png)
+
+**Mapa e lista de escolas:**
+
+![Mapa e lista das 3.110 escolas](prints/todas_mapa_lista.png)
+
+### Cenário 2 — Vale do Ribeira
+
+Com o filtro regional aplicado, o painel apresenta **338 escolas e 63.777 matrículas**.
+
+**Título, filtros e indicadores:**
+
+![Filtros e indicadores do Vale do Ribeira](prints/vale_indicadores.png)
 
 **Gráficos de características e infraestrutura:**
 
-![Quatro gráficos do painel com a seleção de Barra do Turvo](prints/barra_do_turvo_graficos.png)
+![Quatro gráficos do Vale do Ribeira](prints/vale_graficos.png)
 
-**Mapa e lista das escolas selecionadas:**
+**Mapa e lista de escolas:**
 
-![Mapa com uma escola e lista filtrada de Barra do Turvo](prints/barra_do_turvo_mapa_lista.png)
+![Mapa e lista das 338 escolas do Vale do Ribeira](prints/vale_mapa_lista.png)
 
-### Cenário 2 — Vale do Ribeira / Cananéia / Porte Média
-
-O painel selecionou **4 escolas** com **1.086 matrículas**. A contagem por dependência administrativa indicou **3 escolas municipais** e **1 estadual**, todas classificadas como urbanas no recorte filtrado.
-
-**Filtros, indicadores e gráficos de características:**
-
-![Filtros e indicadores de Cananéia, com 4 escolas e 1.086 matrículas](prints/cananeia_indicadores.png)
-
-**Gráficos de características e infraestrutura:**
-
-![Quatro gráficos do painel com a seleção de Cananéia](prints/cananeia_graficos.png)
-
-**Mapa e lista das escolas selecionadas:**
-
-![Mapa com quatro escolas e lista filtrada de Cananéia](prints/cananeia_mapa_lista.png)
-
-Esses dois testes mostram que a alteração dos filtros muda de forma consistente os indicadores, os gráficos, os pontos do mapa e a lista de escolas. Os números acima foram conferidos também diretamente na base CSV.
+Os resultados dos indicadores e a lista foram conferidos na base CSV. Os testes anteriores de Barra do Turvo e Cananéia também confirmaram o funcionamento dos filtros de município e porte.
 
 ## Elementos do painel
 
@@ -128,7 +128,7 @@ A ordem do código segue a estrutura da aula: **classificação de porte, carreg
 >
 > “voce faz o readme pra mim?”
 
-**O que foi conferido e ajustado manualmente após a assistência de IA:** o painel foi aberto e executado no **VS Code**, com as dependências verificadas no terminal do Mac e execução local pelo **Streamlit**. Foram selecionadas diferentes combinações de filtros no navegador, conferidos os indicadores, gráficos, mapa e lista de escolas, e tiradas capturas de tela dos cenários de Barra do Turvo e Cananéia. A versão visual foi avaliada durante esses testes. Não declaramos mudanças manuais no código que não tenham sido realizadas.
+**O que foi conferido e ajustado manualmente após a assistência de IA:** o painel foi aberto e executado no **VS Code**, com as dependências verificadas no terminal do Mac e execução local pelo **Streamlit**. Foram selecionadas diferentes combinações de filtros no navegador, conferidos os indicadores, gráficos, mapa e lista de escolas, e tiradas capturas de tela dos cenários de Barra do Turvo e Cananéia e, posteriormente, de todas as regiões e do Vale do Ribeira. As seis capturas finais documentam estes dois últimos cenários; a captura geral de infraestrutura foi recortada para excluir os gráficos de características duplicados, sem alterar os dados. A versão visual foi avaliada durante esses testes. Não declaramos mudanças manuais no código que não tenham sido realizadas.
 
 ## Fonte de Dados
 
@@ -176,12 +176,12 @@ projeto-4-painel-censo-python/
 ├── requirements.txt
 ├── README.md
 ├── prints/
-│   ├── barra_do_turvo_indicadores.png
-│   ├── barra_do_turvo_graficos.png
-│   ├── barra_do_turvo_mapa_lista.png
-│   ├── cananeia_indicadores.png
-│   ├── cananeia_graficos.png
-│   └── cananeia_mapa_lista.png
+│   ├── todas_indicadores.png
+│   ├── todas_infraestrutura.png
+│   ├── todas_mapa_lista.png
+│   ├── vale_indicadores.png
+│   ├── vale_graficos.png
+│   └── vale_mapa_lista.png
 └── testes/
     └── testar_base.py
 ```

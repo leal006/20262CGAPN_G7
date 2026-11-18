@@ -4,7 +4,7 @@
 **Professora:** Érica Siqueira  
 **Período:** 2º semestre de 2026
 
-Este repositório reúne os Projetos 1, 2 e 3 desenvolvidos pelo Grupo 7. O Projeto 4 será acrescentado em pasta própria. As versões atualizadas desta entrega incluem automação em VBA no Projeto 1 e automação com Power Query no Projeto 2.
+Este repositório reúne os Projetos 1, 2, 3 e 4 desenvolvidos pelo Grupo 7. As versões atualizadas desta entrega incluem automação em VBA no Projeto 1 e automação com Power Query no Projeto 2.
 
 ## Integrantes
 - Rafael Stempfer Leal
@@ -29,6 +29,11 @@ Versão atualizada para utilizar a base nacional completa do Censo Escolar 2024,
 O projeto converte a lógica do simulador para Python, usa matrículas de uma escola real do Censo Escolar 2024 e estima a cobertura federal dos custos de alimentos.
 
 - [Abrir `projeto-3-simulador-pnae-python`](./projeto-3-simulador-pnae-python/)
+
+### Projeto 4 — Painel Interativo do Censo Escolar 2024 em Python
+Painel desenvolvido com pandas e Streamlit, com filtros por região, município e porte, indicadores, gráficos, mapa e lista de escolas.
+
+- [Abrir `projeto-4-painel-censo-python`](./projeto-4-painel-censo-python/)
 
 ## Versões anteriores
 - [`projeto-1-simulador-pnae`](./projeto-1-simulador-pnae/)

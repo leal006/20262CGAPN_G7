@@ -101,11 +101,11 @@ Com **60 matrículas de creche**, **80 de pré-escola**, **50 de ensino fundamen
 
 ### Reflexão sobre financiamento
 
-Na simulação, o repasse federal equivale a **12,67%** do custo estimado dos ingredientes de uma refeição principal diária para os 304 alunos da escola. Os **87,33%** restantes seriam a parcela a ser financiada por outras fontes *dentro desse cenário simplificado*. O resultado **não prova que a escola ou a prefeitura tenham déficit de R$ 238.944,00**: o custo usado é histórico e de outro município, e o modelo não observa despesas nem transferências efetivas de Osasco.
+Na simulação, o repasse federal cobre **12,67%** do custo estimado dos alimentos para os 304 alunos, enquanto os **87,33%** restantes dependeriam de outras fontes de financiamento. Esse resultado é uma estimativa, pois utiliza uma referência de custo de outro município e período.
 
-A nota técnica do **Todos Pela Educação (2023)** destaca que a atualização dos valores per capita e o financiamento do programa são relevantes para preservar seu poder de compra. A análise do **Observatório da Alimentação Escolar (21/10/2025)** discutiu como a perda de poder aquisitivo, até aquele momento, poderia dificultar o cumprimento das diretrizes de alimentação saudável. A reportagem do **Brasil de Fato (16/10/2025)** salientou que a capacidade de complementar recursos federais é desigual entre municípios. **Em fevereiro de 2026 houve reajuste dos repasses federais**, refletido nos valores que este simulador utiliza; assim, os diagnósticos das leituras de 2025 devem ser entendidos no contexto em que foram publicados.
+As leituras do **Todos Pela Educação (2023)**, do **Observatório da Alimentação Escolar (2025)** e do **Brasil de Fato (2025)** destacam a importância dos reajustes do PNAE e da complementação financeira por estados e municípios. Apesar do reajuste federal de fevereiro de 2026, uma complementação insuficiente pode comprometer a qualidade, a variedade e a regularidade da alimentação escolar.
 
-Se um ente responsável não conseguir custear a diferença entre os recursos federais e os alimentos necessários, poderá haver dificuldade para manter a **regularidade, a variedade ou a qualidade** da alimentação oferecida. A resposta adequada exige planejamento de compras, acompanhamento nutricional e complementação orçamentária suficiente; o simulador, por si só, não substitui uma auditoria de gastos nem a avaliação do cardápio escolar.
+**Simplificações adotadas:** matrículas de 2024, valores per capita de 2026, três etapas de ensino (creche, pré-escola e fundamental), 200 dias letivos, uma refeição diária por aluno, custo fixo exclusivamente dos alimentos e classificação didática do porte escolar.
 
 **Simplificações adotadas:** matrículas de **2024** combinadas com per capita federal de **2026**; somente três etapas (creche, pré-escola e fundamental); **200 dias letivos**; **uma refeição por aluno por dia**; custos diretos dos alimentos, sem pessoal, gás, infraestrutura ou equipamentos; valor único por refeição, mesmo entre etapas; classificação de porte **didática, não oficial do PNAE**.
 
@@ -133,11 +133,8 @@ Para repetir os testes de cálculo, execute `python testes/testar_simulador.py`.
 
 **Ferramenta utilizada:** ChatGPT (OpenAI).
 
-**Para que foi usada:** apoio à análise do enunciado, organização de fontes públicas, adaptação do simulador para as três etapas de ensino exigidas, implementação da cobertura do repasse, preparação de testes e elaboração inicial da documentação.
+**Para que foi usada:** apoio à análise do enunciado, organização de fontes públicas, adaptação do simulador para as três etapas de ensino exigidas,  preparação de testes e elaboração inicial da documentação.
 
-**Exemplo de prompt real utilizado:** “ela pede os dados ou pode colocar qualqueer valor de lacnhe por exemplo?” (pergunta feita para esclarecer a exigência de usar um custo de alimentos fundamentado em fonte verificável).
-
-**O que foi ajustado manualmente depois do uso da IA:** o código foi revisado no JupyterLab, copiado para o VS Code e salvo como `simulador_pnae.py`; foram personalizados comentários e mensagens de apresentação e executados os testes com a escola real e com os valores de validação do Projeto 1.
 
 ## Fonte de Dados
 

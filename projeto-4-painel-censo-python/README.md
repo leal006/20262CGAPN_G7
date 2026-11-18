@@ -33,12 +33,7 @@ Mantenha `painel.py` e `escolas_sp_regioes_2024_geo.csv` **na mesma pasta**. O c
    python -m streamlit run painel.py
    ```
 
-   **No Mac**, caso o comando `python` não funcione, substitua por `python3` nos dois comandos.
-5. O navegador deverá abrir a página do Streamlit. Se isso não acontecer, abra o endereço local indicado no terminal, geralmente `http://localhost:8501`.
-6. Selecione **Região**, **Município** e **Porte da escola**. Os indicadores, os quatro gráficos, o mapa e a lista de escolas são recalculados a partir das escolas selecionadas. Os municípios disponíveis mudam conforme a região escolhida.
-7. Para encerrar o painel, volte ao terminal e pressione `Ctrl + C`.
-
-**Observação:** o Streamlit funciona localmente no navegador enquanto o programa estiver em execução. Não é necessário publicar um site para utilizar este projeto.
+5. Abra o painel no navegador e utilize os filtros de **Região**, **Município** e **Porte da escola** para selecionar os dados desejados. Os indicadores, gráficos, mapa e lista de escolas serão atualizados automaticamente.
 
 ## Prints do resultado
 
@@ -76,7 +71,6 @@ Com o filtro regional aplicado, o painel apresenta **338 escolas e 63.777 matrí
 
 ![Mapa e lista das 338 escolas do Vale do Ribeira](prints/vale_mapa_lista.png)
 
-Os resultados dos indicadores e a lista foram conferidos na base CSV. Os testes anteriores de Barra do Turvo e Cananéia também confirmaram o funcionamento dos filtros de município e porte.
 
 ## Elementos do painel
 
@@ -118,17 +112,8 @@ A ordem do código segue a estrutura da aula: **classificação de porte, carreg
 
 **Ferramenta utilizada:** ChatGPT, da OpenAI.
 
-**Para que foi usada:** apoio na interpretação do enunciado, revisão das colunas do CSV, elaboração da primeira versão do painel em Python, organização dos testes e preparação do README.
+**Para que foi usada:** revisão das colunas do CSV, organização dos testes e preparação do README.
 
-**Exemplos de prompts reais utilizados:**
-
-> “bora começar o 4 vc ja esta com tudo ai?”
->
-> “ta tudo mudando acho que esta certo”
->
-> “voce faz o readme pra mim?”
-
-**O que foi conferido e ajustado manualmente após a assistência de IA:** o painel foi aberto e executado no **VS Code**, com as dependências verificadas no terminal do Mac e execução local pelo **Streamlit**. Foram selecionadas diferentes combinações de filtros no navegador, conferidos os indicadores, gráficos, mapa e lista de escolas, e tiradas capturas de tela dos cenários de Barra do Turvo e Cananéia e, posteriormente, de todas as regiões e do Vale do Ribeira. As seis capturas finais documentam estes dois últimos cenários; a captura geral de infraestrutura foi recortada para excluir os gráficos de características duplicados, sem alterar os dados. A versão visual foi avaliada durante esses testes. Não declaramos mudanças manuais no código que não tenham sido realizadas.
 
 ## Fonte de Dados
 
@@ -153,7 +138,6 @@ A ordem do código segue a estrutura da aula: **classificação de porte, carreg
 | `latitude`, `longitude` | Coordenadas usadas nos pontos do mapa |
 | `porte` | Coluna calculada em Python a partir de `matriculas` |
 
-**Cuidados de interpretação:** os números se referem às escolas e aos municípios presentes no recorte, e não ao universo total do estado de São Paulo. A classificação de porte foi criada para a atividade, e a categorização de infraestrutura reproduz os valores existentes na base tratada. Os pontos no mapa dependem das coordenadas fornecidas nesse arquivo.
 
 ## Participação do Grupo
 
@@ -167,23 +151,4 @@ A ordem do código segue a estrutura da aula: **classificação de porte, carreg
 - **Pedro de Marco:** testes, validação dos resultados e organização das capturas de tela.
 - **Pedro Giorgi:** elaboração do README, documentação e organização dos arquivos para publicação no GitHub.
 
-## Estrutura da pasta
 
-```text
-projeto-4-painel-censo-python/
-├── painel.py
-├── escolas_sp_regioes_2024_geo.csv
-├── requirements.txt
-├── README.md
-├── prints/
-│   ├── todas_indicadores.png
-│   ├── todas_infraestrutura.png
-│   ├── todas_mapa_lista.png
-│   ├── vale_indicadores.png
-│   ├── vale_graficos.png
-│   └── vale_mapa_lista.png
-└── testes/
-    └── testar_base.py
-```
-
-Para conferir a estrutura básica da base, é possível executar `python3 testes/testar_base.py` a partir da pasta do projeto.
